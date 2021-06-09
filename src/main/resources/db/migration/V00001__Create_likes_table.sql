@@ -1,0 +1,5 @@
+CREATE TABLE likes (
+    id SERIAL PRIMARY KEY NOT NULL,
+    dish VARCHAR(256) NOT NULL,
+    count INTEGER
+);
