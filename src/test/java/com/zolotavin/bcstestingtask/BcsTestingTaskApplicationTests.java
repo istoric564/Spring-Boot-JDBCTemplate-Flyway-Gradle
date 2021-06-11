@@ -1,24 +1,21 @@
 package com.zolotavin.bcstestingtask;
 
+import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureJdbc;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.web.servlet.MockMvc;
-
-import static org.springframework.mock.http.server.reactive.MockServerHttpRequest.post;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
+import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
+import org.springframework.test.context.TestPropertySource;
 
 @SpringBootTest
-@AutoConfigureJdbc
-@AutoConfigureMockMvc
+@TestPropertySource("/application-test.properties")
 class BcsTestingTaskApplicationTests {
-    @Autowired
-    private MockMvc mockMvc;
+
 
     @Test
-    public void correctLoginTest() throws Exception {
-//        this.mockMvc.perform(post("/register-likes"));
+    public void testCorrectInsert(){
     }
-
 }
+
+

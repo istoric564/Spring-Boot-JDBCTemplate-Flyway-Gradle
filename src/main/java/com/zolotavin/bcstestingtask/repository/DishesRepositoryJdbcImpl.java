@@ -5,15 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.PreparedStatement;
 import java.util.List;
 
 @Repository
-public class JdbcRepo {
+public class DishesRepositoryJdbcImpl implements DishesRepository{
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -24,7 +21,7 @@ public class JdbcRepo {
             "DO UPDATE " +
             "SET count = likes.count + 1";
 
-    @Transactional(propagation = Propagation.REQUIRES_NEW, isolation = Isolation.READ_COMMITTED)
+    @Override
     public void dishInsert(List<String> listDishes) {
         this.jdbcTemplate.batchUpdate(sql, new BatchPreparedStatementSetter() {
             @SneakyThrows

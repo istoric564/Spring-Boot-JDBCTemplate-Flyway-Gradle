@@ -13,7 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "likes")
-public class ServiceResponseDish {
+public class DishModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

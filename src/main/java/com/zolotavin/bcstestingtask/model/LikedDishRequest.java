@@ -3,11 +3,11 @@ package com.zolotavin.bcstestingtask.model;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Accessors(chain = true)
-public class ServiceRequestDish {
+public class LikedDishRequest {
 
-    private ArrayList<String> listDishes;
+    private List<String> listDishes;
 }
