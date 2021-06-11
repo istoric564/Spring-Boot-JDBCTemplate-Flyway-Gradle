@@ -26,6 +26,7 @@ public class DishesService {
     }
 
     public List<ServiceResponseDish> getAllLovelyDishes() {
-        return hibernateRepo.findAll();
+        System.out.println("Топ 10 самых популярных и супер крутых блюд");
+        return hibernateRepo.findTop10ByOrderByCountDesc();
     }
 }

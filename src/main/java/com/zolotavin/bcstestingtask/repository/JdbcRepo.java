@@ -18,19 +18,23 @@ public class JdbcRepo {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    @Transactional(propagation = Propagation.REQUIRES_NEW, isolation = Isolation.REPEATABLE_READ)
+    String sql = "INSERT INTO likes (dish, count) " +
+            "VALUES(?, 1)" +
+            "ON CONFLICT (dish) " +
+            "DO UPDATE " +
+            "SET count = likes.count + 1";
+
+    @Transactional(propagation = Propagation.REQUIRES_NEW, isolation = Isolation.READ_COMMITTED)
     public void dishInsert(List<String> listDishes) {
-        this.jdbcTemplate.batchUpdate(
-                "INSERT INTO likes (dish, count) VALUES(?, ?)",
-                new BatchPreparedStatementSetter() {
-                    @SneakyThrows
-                    public void setValues(PreparedStatement ps, int i) {
-                        ps.setString(1, listDishes.get(i));
-                        ps.setInt(2, 1);
-                    }
-                    public int getBatchSize() {
-                        return listDishes.size();
-                    }
-                });
+        this.jdbcTemplate.batchUpdate(sql, new BatchPreparedStatementSetter() {
+            @SneakyThrows
+            public void setValues(PreparedStatement ps, int i) {
+                ps.setString(1, listDishes.get(i));
+            }
+
+            public int getBatchSize() {
+                return listDishes.size();
+            }
+        });
     }
 }
