@@ -5,6 +5,6 @@ import com.zolotavin.bcstestingtask.model.DishModel;
 import java.util.List;
 
 
-public interface HibernateRepo {
+public interface TopDishesRepo {
     List<DishModel> findNumberOfBestDishes(Integer number);
 }

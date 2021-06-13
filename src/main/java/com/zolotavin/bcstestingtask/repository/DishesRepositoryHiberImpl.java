@@ -15,7 +15,7 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 @Repository
-public class DishesRepositoryHiberImpl implements HibernateRepo {
+public class DishesRepositoryHiberImpl implements TopDishesRepo {
     @Autowired
     EntityManager entityManager;
 

@@ -23,7 +23,7 @@ public class DishesService {
         dishesRepositoryJdbc.dishInsert(listDishes);
     }
 
-    public List<DishModel> findNumberOfBestDishes(@PathVariable Integer number) {
+    public List<DishModel> findNumberOfBestDishes(Integer number) {
         return dishesRepositoryHiber.findNumberOfBestDishes(number);
     }
 }
