@@ -21,11 +21,12 @@ public class DishController {
 
     @PostMapping("/register-likes")
     public void registerLikes(@RequestBody LikedDishRequest likedDishRequest) {
-        dishesService.addDishes(likedDishRequest.getListDishes());
+        dishesService.dishInsert(likedDishRequest.getListDishes());
     }
 
-    @GetMapping("/likes/{number}")
-    public List<DishModel> getAllLikes(@PathVariable Integer number) {
-        return dishesService.getAllLovelyDishes(number);
+    @RequestMapping(value = "/likes", method = RequestMethod.GET)
+    @ResponseBody
+    public List<DishModel> getNumberOfBestDishes(@RequestParam("top") Integer top) {
+        return dishesService.findNumberOfBestDishes(top);
     }
 }
