@@ -3,6 +3,9 @@ package com.zolotavin.bcstestingtask.repository;
 import com.zolotavin.bcstestingtask.model.DishModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -17,6 +20,7 @@ public class DishesRepositoryHiberImpl implements HibernateRepo {
     EntityManager entityManager;
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRES_NEW, isolation = Isolation.READ_COMMITTED)
     public List<DishModel> findNumberOfBestDishes(Integer number) {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<DishModel> criteriaQuery = criteriaBuilder.createQuery(DishModel.class);
