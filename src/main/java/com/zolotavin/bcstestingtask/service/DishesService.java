@@ -3,7 +3,6 @@ package com.zolotavin.bcstestingtask.service;
 import com.zolotavin.bcstestingtask.model.DishModel;
 import com.zolotavin.bcstestingtask.repository.DishesRepositoryHiberImpl;
 import com.zolotavin.bcstestingtask.repository.DishesRepositoryJdbcImpl;
-import com.zolotavin.bcstestingtask.repository.HibernateRepo;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 

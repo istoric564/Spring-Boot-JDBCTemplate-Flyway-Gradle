@@ -1,7 +1,7 @@
 package com.zolotavin.bcstestingtask.controller;
 
-import com.zolotavin.bcstestingtask.model.LikedDishRequest;
 import com.zolotavin.bcstestingtask.model.DishModel;
+import com.zolotavin.bcstestingtask.model.LikedDishRequest;
 import com.zolotavin.bcstestingtask.service.DishesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

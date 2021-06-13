@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface DishesRepository {
 
-   void dishInsert(List<String> listDishes);
+    void dishInsert(List<String> listDishes);
 }

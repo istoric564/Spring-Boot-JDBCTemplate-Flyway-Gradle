@@ -10,7 +10,7 @@ import java.sql.PreparedStatement;
 import java.util.List;
 
 @Repository
-public class DishesRepositoryJdbcImpl implements DishesRepository{
+public class DishesRepositoryJdbcImpl implements DishesRepository {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
